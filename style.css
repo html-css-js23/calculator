@@ -4,6 +4,11 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
+body {
+  background: linear-gradient(to bottom, #87CEFA, #1E90FF);
+}
+
+
 .button {
   background-color: #ff1100;
   border: none;
