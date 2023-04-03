@@ -4,7 +4,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
-.button {
+button {
   background-color: #ff1100;
   border: none;
   color: white;
