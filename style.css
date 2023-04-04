@@ -22,3 +22,6 @@ body {
   cursor: pointer;
 }
 
+p {
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
