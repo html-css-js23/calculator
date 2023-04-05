@@ -1,155 +1,84 @@
 <!DOCTYPE html>
 <html>
-<body style="background-color: #89CFF0;">
-	<p class="a">PASSWORD</p>
-<!--Password is SchoolSucks23-->
-<!-- Your webpage content goes here -->
-<input type="password" id="pass" name="password" class="pass"><br><br>
-<input type="submit" id="sub" name="sub" class="sub"><br><br>
-<style>
-  .sub {
-    background-color: #3ef52a;
-    border: none;
-    color: black;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 2px;
-    cursor: pointer;
-    width: 100px;
-    height: 50px;
-    border-radius: 25px;
-  }
-</style>
-
-<script>
-  const PASSWORD = "SchoolSucks23";
-  const passInput = document.getElementById("pass");
-  const submitBtn = document.getElementById("sub");
-  const content = document.getElementById("content");
-
-  submitBtn.addEventListener("click", function() {
-    if (passInput.value === PASSWORD) {
-      submitBtn.style.display = "none";
-      passInput.style.display = "none";
-      content.style.display = "block";
-    } else {
-      alert("Incorrect password, try again!");
-    }
-  });
-</script>
-	</body>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Calculator Website</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+	<title>Calculator</title>
+	<script>
+		function checkPassword() {
+			var password = document.getElementById("password").value;
+			if(password == "SchoolSucks23") {
+				document.getElementById("passwordArea").style.display = "none";
+				document.getElementById("calculatorArea").style.display = "block";
+			}
+			else {
+				alert("Incorrect password!");
+			}
+		}
+
+		window.onload = function() {
+			document.getElementById("calculatorArea").style.display = "none";
+		}
+	</script>
+	<style>
+		#passwordArea {
+			margin: auto;
+			width: 50%;
+			padding: 10px;
+			border: 1px solid black;
+			text-align: center;
+		}
+		#calculatorArea {
+			margin: auto;
+			width: 50%;
+			padding: 10px;
+			border: 1px solid black;
+			text-align: center;
+		}
+		input[type="text"], input[type="password"], button {
+			margin: 10px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid black;
+			font-size: 16px;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+		}
+	</style>
 </head>
-  <a href="https://classroom.google.com/?pli=1" class="button">Google Class</a>
-    <p></p>
 <body>
-  Calculator
-  <script src="script.js"></script>
+	<div id="passwordArea">
+		<h2>Enter Password to Access Calculator</h2>
+		<input type="password" id="password" name="password">
+		<button type="button" onclick="checkPassword()">Submit</button>
+	</div>
+	<div id="calculatorArea">
+		<h2>Calculator</h2>
+		<input type="text" id="num1" name="num1"> +
+		<input type="text" id="num2" name="num2"> =
+		<input type="text" id="result" name="result" readonly>
+		<br>
+		<button type="button" onclick="add()">Add</button>
+		<button type="button" onclick="clearFields()">Clear</button>
+	</div>
+	<script>
+		function add() {
+			var num1 = parseFloat(document.getElementById("num1").value);
+			var num2 = parseFloat(document.getElementById("num2").value);
+			if(isNaN(num1) || isNaN(num2)) {
+				alert("Please enter valid numbers!");
+			}
+			else {
+				var result = num1 + num2;
+				document.getElementById("result").value = result;
+			}
+		}
+
+		function clearFields() {
+			document.getElementById("num1").value = "";
+			document.getElementById("num2").value = "";
+			document.getElementById("result").value = "";
+		}
+	</script>
 </body>
-  
-  <!--
-  This script places a badge on your repl's full-browser view back to your repl's cover
-  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-  teal, blue, blurple, magenta, pink!
-  -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Calculator</title>
-    <style>
-      /* CSS styles for calculator */
-      #calculator {
-        width: 300px;
-        margin: 0 auto; /* centers the calculator */
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 5px #ccc;
-      }
-
-      #calculator input[type="button"] {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 2px;
-        cursor: pointer;
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-      }
-
-      #calculator input[type="text"] {
-        width: 90%;
-        padding: 10px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        font-size: 24px;
-        height: 40px; /* smaller height */
-        text-align: right; /* right-align text in box */
-      }
-
-      #calculator input[type="button"]:hover {
-        background-color: #3e8e41;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="calculator">
-      <input type="text" id="result" readonly />
-
-      <input type="button" value="1" onclick="appendToInput('1')" />
-      <input type="button" value="2" onclick="appendToInput('2')" />
-      <input type="button" value="3" onclick="appendToInput('3')" />
-      <input type="button" value="+" onclick="appendToInput('+')" />
-
-      <input type="button" value="4" onclick="appendToInput('4')" />
-      <input type="button" value="5" onclick="appendToInput('5')" />
-      <input type="button" value="6" onclick="appendToInput('6')" />
-      <input type="button" value="-" onclick="appendToInput('-')" />
-
-      <input type="button" value="7" onclick="appendToInput('7')" />
-      <input type="button" value="8" onclick="appendToInput('8')" />
-      <input type="button" value="9" onclick="appendToInput('9')" />
-      <input type="button" value="*" onclick="appendToInput('*')" />
-
-      <input type="button" value="." onclick="appendToInput('.')" />
-      <input type="button" value="0" onclick="appendToInput('0')" />
-      <input type="button" value="=" onclick="calculate()" />
-      <input type="button" value="/" onclick="appendToInput('/')" />
-
-      <input type="button" value="C" onclick="clearInput()" />
-    </div>
-
-    <script>
-      // JavaScript code for calculator
-      function appendToInput(value) {
-        document.getElementById("result").value += value;
-      }
-
-      function calculate() {
-        var result = eval(document.getElementById("result").value);
-        document.getElementById("result").value = result;
-      }
-
-      function clearInput() {
-        document.getElementById("result").value = "";
-      }
-    </script>
-  </body>
-
-	<p>Credits to Alex.v</p>
+</html>
