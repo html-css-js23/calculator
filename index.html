@@ -9,6 +9,7 @@
 			if(password == "WeHateFrickingSchool23") {
 				document.getElementById("passwordArea").style.display = "none";
 				document.getElementById("calculatorArea").style.display = "block";
+				alert("Hi, user! Thanks for using this calculator.")
 			}
 			else {
 				alert("Incorrect password! Try again or die :)");
@@ -17,6 +18,7 @@
 
 		window.onload = function() {
 			document.getElementById("calculatorArea").style.display = "none";
+			document.getElementById("emg").style.display = "none";
 		}
 	</script>
 	<style>
@@ -62,6 +64,7 @@
 		<button type="button" onclick="add()">Add</button>
 		<button type="button" onclick="clearFields()">Clear</button>
 	</div>
+	<input type="button" id="emg" name="classroom">
 	<script>
 		function add() {
 			var num1 = parseFloat(document.getElementById("num1").value);
